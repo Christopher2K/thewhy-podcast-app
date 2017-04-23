@@ -1,0 +1,23 @@
+/**
+ * I use the mobile first policy.
+ * These values are set up for the "min-width" media query
+ */
+$small_devices: 576px;
+$medium_devices: 768px;
+$large_devices:  992px;
+
+@mixin respondTo($device) {
+    @if $device == desktop {
+        @media (min-width: $large_devices) {
+            @content;
+        }
+    } @else if $device == tablet {
+        @media (min-width: $medium_devices) {
+            @content;
+        }
+    } @else if $device == mobile {
+        @media (min-width: $small_devices) {
+            @content;
+        }
+    }
+}

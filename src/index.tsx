@@ -1,8 +1,11 @@
 import * as ReactDOM from 'react-dom';
-import * as React from 'react'
-import { App } from './App.component';
+import * as React from 'react';
+
+import { App } from './components';
+
+import './assets/styles/base.global.scss';
 
 ReactDOM.render(
-    <App title="Typescript React" />,
+    <App />,
     document.querySelector('#root')
 );

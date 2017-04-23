@@ -1,0 +1,18 @@
+@mixin component($position: relative, $width: auto, $height: auto, $zIndex: initial) {
+    position: $position;
+    width: $width;
+    height: $height;
+    z-index: $zIndex;
+}
+
+@mixin flex($flexDiretion: column, $justify: center, $align: center, $inline: false) {
+    @if $inline == false {
+        display: flex;
+    } @else if $inline == true {
+        display: flex-inline;
+    }
+    
+    flex-direction: $flexDiretion;
+    justify-content: $justify;
+    align-items: $align;
+}
