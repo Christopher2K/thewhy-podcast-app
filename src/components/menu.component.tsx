@@ -58,16 +58,3 @@ export class Menu extends React.Component<MenuProps, MenuState> {
         this.setState(newState);
     }
 }
-
-interface OpenButtonProps {
-    onClick: () => void
-}
-
-const OpenButton: React.StatelessComponent<OpenButtonProps> = (props: OpenButtonProps) => {
-    const { onClick } = props;
-    return (
-        <div className="openButton">
-            <i className="openButton-icon fa fa-2x fa-bars" onClick={ onClick }></i>
-        </div>
-    );
-}
