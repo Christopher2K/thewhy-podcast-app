@@ -1,2 +1,2 @@
 export * from './app.component';
-export * from './menu.component';
+export * from './dumbs/menu.component';
