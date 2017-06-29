@@ -16,6 +16,8 @@ export const Home: React.SFC = (): JSX.Element => (
         <div className="home__buttons">
             <button className="button">
                 <Link to={`/concept`}>Concept</Link>
+            </button>
+            <button className="button">
                 <Link to={`/podcasts`}>Podcasts</Link>
             </button>
         </div>

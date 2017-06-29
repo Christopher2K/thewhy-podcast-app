@@ -43,7 +43,6 @@
       margin : 0 30px;
 
       @include breakpoint(small_device) {
-        @include flex();
         margin : 15px 0;
       }
     }
