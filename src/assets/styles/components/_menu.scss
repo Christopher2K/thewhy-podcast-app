@@ -3,12 +3,6 @@
 
 // VALUES
 $desktop_width : 350px;
-$tablet_width : 600px;
-$mobile_width : 95%;
-
-$desktop_height : 100%;
-$tablet_height : 95%;
-$mobile_height : 95%;
 
 $default_menu_shadow : 0 0 3px 0 rgba(0, 0, 0, 0.45);
 
@@ -18,28 +12,33 @@ $default_menu_shadow : 0 0 3px 0 rgba(0, 0, 0, 0.45);
     position : fixed;
     top      : 20px;
     left     : 20px;
+    z-index  : 10;
+    cursor   : pointer;
   }
 
   .menu__content {
     @include flex($justify : space-between);
-    position   : fixed;
-    top        : 0;
-    left       : 0;
-    box-sizing : border-box;
-    padding    : 10px;
-    width      : $desktop_width;
-    height     : $desktop_height;
-    transition : 200ms ease-in transform;
-    box-shadow : $default_menu_shadow;
+    position         : fixed;
+    top              : 0;
+    left             : 0;
+    box-sizing       : border-box;
+    padding          : 10px;
+    width            : $desktop_width;
+    height           : 100%;
+    transition       : 200ms ease-in transform;
+    box-shadow       : $default_menu_shadow;
+    background-color : #FFFFFF;
+    z-index          : 20;
 
     @include breakpoint(extra_small_device) {
-      width: 100%;
+      width : 100%;
     }
 
     .content__exit {
       position : absolute;
       top      : 15px;
       left     : 15px;
+      cursor   : pointer;
     }
 
     .content__logo {
@@ -50,22 +49,30 @@ $default_menu_shadow : 0 0 3px 0 rgba(0, 0, 0, 0.45);
     }
 
     .content__items {
-      @include flex($justify: space-around);
-      margin: 100px 0;
+      @include flex($justify : space-around);
+      margin     : 100px 0;
       flex-grow  : 1;
       list-style : none;
       padding    : 0;
       width      : 100%;
 
       @include breakpoint(extra_small_device) {
-        margin: 50px 0;
+        margin : 50px 0;
       }
 
       .item {
         .item__link {
-          font-weight: bold;
-          text-transform: uppercase;
-          text-decoration: none;
+          font-weight     : bold;
+          text-transform  : uppercase;
+          text-decoration : none;
+          letter-spacing  : 2px;
+          color           : #000000;
+          padding         : 2px 5px;
+
+          &:hover {
+            color            : #FFFFFF;
+            background-color : #000000;
+          }
         }
       }
     }
