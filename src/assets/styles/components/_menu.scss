@@ -1,128 +1,117 @@
-@import '../global/responsive';
 @import '../global/mixins';
+@import '../global/helpers';
 
 // VALUES
-$desktop_width: 250px;
-$tablet_width: 600px;
-$mobile_width: 95%;
+$desktop_width : 350px;
+$tablet_width : 600px;
+$mobile_width : 95%;
 
-$desktop_height: 100%;
-$tablet_height: 95%;
-$mobile_height: 95%;
+$desktop_height : 100%;
+$tablet_height : 95%;
+$mobile_height : 95%;
 
-$defaut_menu_shadow: 0 0 3px 0 rgba(0,0,0,0.45);
-
+$default_menu_shadow : 0 0 3px 0 rgba(0, 0, 0, 0.45);
 
 // STYLE
 .menu {
-    height: 100%;
-    @include respondTo(desktop) {
-        @include component(relative, $desktop_width, $desktop_height);
+  .menu__burger {
+    position : fixed;
+    top      : 20px;
+    left     : 20px;
+  }
+
+  .menu__content {
+    @include flex($justify : space-between);
+    position   : fixed;
+    top        : 0;
+    left       : 0;
+    box-sizing : border-box;
+    padding    : 10px;
+    width      : $desktop_width;
+    height     : $desktop_height;
+    transition : 200ms ease-in transform;
+    box-shadow : $default_menu_shadow;
+
+    @include breakpoint(extra_small_device) {
+      width: 100%;
     }
 
-    .menu-open {
-        @include respondTo(desktop) {
-            display: none;
-        }
+    .content__exit {
+      position : absolute;
+      top      : 15px;
+      left     : 15px;
     }
 
-    .menu-content {
-        @include flex(column, flex-start, center);
-        position: relative;
-        background-color: #FFF;
-
-        width: $mobile_width;
-        height: $mobile_height;
-        
-        box-shadow: $defaut_menu_shadow;
-        border-radius: 5px;
-
-
-        @include respondTo(tablet) {
-            width: $tablet_width;
-            height: $tablet_height;
-        }
-
-        @include respondTo(desktop) {
-            width: 100%;
-            height: 100%;
-            border-radius: 0px;
-        }
-
-        .content-close {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
-
-            @include respondTo(desktop) {
-                display: none;
-            }
-        }
-
-        .content-title {
-            flex-shrink: 0;
-            width: calc(100% - 20px);
-            text-align: center;
-            padding: {
-                top: 15px;
-                left: 10px;
-                right: 10px;
-            }
-        }
-
-        .content-items {
-            @include flex();
-            flex-grow: 2;
-            flex-shrink: 1;
-            list-style: none;
-            width: calc(100% - 20px);
-            padding: 10px;
-
-            .item {
-                width: 100%;
-
-                .item-link {
-                    display: block;
-                    width: 100%;
-                    height: 100%;
-                    padding: 15px 0;
-                    text-align: center;
-                }
-            }
-        }
+    .content__logo {
+      padding     : 20px 0;
+      width       : 100%;
+      height      : auto;
+      flex-shrink : 0;
     }
 
-    &.menu__opened {
-        @include flex();
-        background: rgba(0,0,0, 0.15);
+    .content__items {
+      @include flex($justify: space-around);
+      margin: 100px 0;
+      flex-grow  : 1;
+      list-style : none;
+      padding    : 0;
+      width      : 100%;
 
-        .menu-open {
-            display: none;
-        }            
+      @include breakpoint(extra_small_device) {
+        margin: 50px 0;
+      }
+
+      .item {
+        .item__link {
+          font-weight: bold;
+          text-transform: uppercase;
+          text-decoration: none;
+        }
+      }
     }
 
-    &.menu__closed {
+    .content__legals {
+      @include flex(row);
+      width          : 100%;
+      font-size      : 12px;
+      text-transform : uppercase;
+      flex-shrink    : 0;
+      margin-top     : 15px;
 
-        .menu-open {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            border: 2px solid transparent;
-            padding: 0 5px;
-            border-radius: 4px;
-            cursor: pointer;
+      .legals__mentions {
+        border-right    : 1px solid #000000;
+        text-decoration : underline;
+        cursor          : pointer;
+        padding-right   : 5px;
+      }
 
-            &:hover {
-                border-color: #000;
-            }
-        }
-
-        .menu-content {
-            display: none;
-            @include respondTo(desktop) {
-                display: block;
-            }
-        }
+      .legals__copyright {
+        margin-left : 5px;
+      }
     }
+  }
+
+  &.menu--opened {
+    .menu__burger {
+      visibility : hidden;
+      opacity    : 0;
+    }
+
+    .menu__burger {
+      visibility : hidden;
+    }
+  }
+
+  &.menu--closed {
+    .menu__burger {
+      opacity    : 1;
+      visibility : visible;
+      transition : 200ms ease-in all;
+    }
+
+    .menu__content {
+      transform  : translateX(-100%);
+      transition : 200ms ease-out transform;
+    }
+  }
 }

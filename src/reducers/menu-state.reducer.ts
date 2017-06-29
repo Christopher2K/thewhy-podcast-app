@@ -22,7 +22,6 @@ export const menuReducer: Reducer<MenuState> = (state: MenuState = INITIAL_MENU_
 
 const openMenu = (state: MenuState): MenuState => {
     let newState: MenuState = _.cloneDeep(state);
-    console.debug("FIRED HERE");
     newState.opened = true;
 
     return newState;
