@@ -1,18 +1,35 @@
 @mixin component($position: relative, $width: auto, $height: auto, $zIndex: initial) {
-    position: $position;
-    width: $width;
-    height: $height;
-    z-index: $zIndex;
+  position : $position;
+  width    : $width;
+  height   : $height;
+  z-index  : $zIndex;
 }
 
-@mixin flex($flexDiretion: column, $justify: center, $align: center, $inline: false) {
-    @if $inline == false {
-        display: flex;
-    } @else if $inline == true {
-        display: flex-inline;
+@mixin flex($dir: column, $justify: center, $align: center, $inline: false) {
+  @if $inline == false {
+    display : flex;
+  } @else if $inline == true {
+    display : inline-flex;
+  }
+
+  flex-direction  : $dir;
+  justify-content : $justify;
+  align-items     : $align;
+}
+
+$breakpoints : (
+        extra_small_device: 380px,
+        small_device: 767px,
+        medium_device: 992px,
+        large_device: 1200px,
+) !default;
+
+@mixin breakpoint($breakpoint) {
+  @if (map_has_key($breakpoints, $breakpoint)) {
+    @media (max-width : #{map_get($breakpoints, $breakpoint)}) {
+      @content;
     }
-    
-    flex-direction: $flexDiretion;
-    justify-content: $justify;
-    align-items: $align;
+  } @else {
+    @warn "No value could be retrieved from `#{$breakpoint}`. It may be not defined in the map.";
+  }
 }

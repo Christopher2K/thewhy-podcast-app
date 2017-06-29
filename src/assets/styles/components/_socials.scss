@@ -1,0 +1,40 @@
+@import '../global/mixins';
+@import '../global/helpers';
+@import '../global/variables';
+
+$size : 30px;
+
+// STYLE
+.socials {
+  @include flex(row);
+  width  : auto;
+  height : auto;
+
+  .social {
+    @include flex();
+    width           : $size;
+    height          : $size;
+    text-decoration : none;
+    border          : 1px solid;
+    border-radius   : 50%;
+    padding         : 3px;
+    margin          : 0 5px;
+
+    .social__icon {
+      font-size : 20px;
+      cursor: pointer;
+    }
+
+    &.social--twitter { color : $twitter_color; }
+    &.social--facebook { color : $facebook_color; }
+    &.social--instagram { color : $instagram_color; }
+    &.social--soundcloud { color : $soundcloud_color; }
+
+    &:hover {
+      &.social--twitter { background-color : $twitter_color; color : #FFFFFF; }
+      &.social--facebook { background-color : $facebook_color; color : #FFFFFF; }
+      &.social--instagram { background-color : $instagram_color; color : #FFFFFF; }
+      &.social--soundcloud { background-color : $soundcloud_color; color : #FFFFFF; }
+    }
+  }
+}
