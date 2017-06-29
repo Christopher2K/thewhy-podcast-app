@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start:dev": "webpack-dev-server --progress --inline --hot",
-    "build": "webpack --config webpack.config.js"
+    "build": "rm -rf dist/ && webpack --config webpack.config.js"
   },
   "devDependencies": {
     "@types/history": "^4.6.0",
