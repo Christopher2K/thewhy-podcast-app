@@ -1,0 +1,51 @@
+@import '../global/mixins';
+@import '../global/helpers';
+
+.home {
+  @include flex($justify : space-between);
+
+  .home__header {
+    @include flex();
+    width       : 100%;
+    flex-shrink : 1;
+    margin-top  : 10%;
+    box-sizing  : border-box;
+    padding     : 0 10px;
+
+    @include breakpoint(medium_device) { margin-top : 10%; }
+    @include breakpoint(small_device) { margin-top : 15%; }
+    @include breakpoint(extra_small_device) { margin-top : 20%; }
+
+    .header__logo {
+      max-width     : 600px;
+      width         : 100%;
+      height        : auto;
+      margin-bottom : 20px;
+    }
+
+    .header__tag-line {
+      text-align : center;
+    }
+  }
+
+  .home__buttons {
+    @include flex(row);
+    width       : 100%;
+    flex-grow   : 1;
+    flex-shrink : 2;
+
+    @include breakpoint(small_device) {
+      @include flex();
+    }
+
+    button {
+      @include button();
+      margin : 0 30px;
+
+      @include breakpoint(small_device) {
+        @include flex();
+        margin : 15px 0;
+      }
+    }
+  }
+}

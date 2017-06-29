@@ -61,8 +61,8 @@ $default_menu_shadow : 0 0 3px 0 rgba(0, 0, 0, 0.45);
       }
 
       .item {
-        .item__link {
-          font-weight     : bold;
+        .item__link, a {
+          font-weight     : 500;
           text-transform  : uppercase;
           text-decoration : none;
           letter-spacing  : 2px;
@@ -84,6 +84,7 @@ $default_menu_shadow : 0 0 3px 0 rgba(0, 0, 0, 0.45);
       text-transform : uppercase;
       flex-shrink    : 0;
       margin-top     : 15px;
+      font-weight    : 600;
 
       .legals__mentions {
         border-right    : 1px solid #000000;

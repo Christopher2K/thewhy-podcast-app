@@ -1,0 +1,11 @@
+@import '../global/mixins';
+@import '../global/helpers';
+
+.concept {
+  @include flex($justify: flex-start);
+
+  .concept__title {
+    margin-top: 20px;
+    text-transform: uppercase;
+  }
+}

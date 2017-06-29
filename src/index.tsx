@@ -48,17 +48,17 @@ let store: Store<AppState> = createStore(
 
 ReactDOM.render(
     <Provider store={store}>
-        <div id="app">
-            <MenuContainer />
-            <ConnectedRouter history={history}>
+        <ConnectedRouter history={history}>
+            <div id="app">
+                <MenuContainer />
                 <Switch>
                     <Route exact path="/" component={HomePage}/>
                     <Route exact path="/concept" component={ConceptPage}/>
                     <Route path="/podcasts" component={PodcastsPage}/>
                     <Route path="*" component={NotFoundPage}/>
                 </Switch>
-            </ConnectedRouter>
-        </div>
+            </div>
+        </ConnectedRouter>
     </Provider>,
     document.querySelector('#root')
 )

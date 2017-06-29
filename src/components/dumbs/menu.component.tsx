@@ -1,6 +1,8 @@
 import * as React from 'react';
 import Socials from './socials.component';
+import Legals from './legals.component';
 import '../../assets/styles/components/_menu.scss';
+import { Link } from 'react-router-dom';
 
 const logo = require('../../assets/img/the-why-inline.png');
 
@@ -15,6 +17,8 @@ export interface MenuDispatchProps {
 
 interface MenuProps extends MenuStateProps, MenuDispatchProps {
 }
+
+console.log(Link);
 
 const Menu: React.SFC<MenuProps> = ({menuOpened, openMenu, closeMenu}): JSX.Element => (
 
@@ -31,21 +35,21 @@ const Menu: React.SFC<MenuProps> = ({menuOpened, openMenu, closeMenu}): JSX.Elem
             <img className="content__logo" src={logo} alt="The Why, Le Poukwa"/>
             <ul className="content__items">
                 <li className="item">
-                    <a className="item__link" href="#">Concept</a>
+                    <Link to={`/`} onClick={ closeMenu }>Accueil</Link>
                 </li>
                 <li className="item">
-                    <a className="item__link" href="#">Podcasts</a>
+                    <Link to={`/concept`} onClick={ closeMenu }>Concept</Link>
                 </li>
                 <li className="item">
-                    <a className="item__link" href="#">A propos</a>
+                    <Link to={`/podcasts`} onClick={ closeMenu }>Podcasts</Link>
+                </li>
+                <li className="item">
+                    <span className="item__link" onClick={ closeMenu }>A propos</span>
                 </li>
             </ul>
             <Socials />
 
-            <div className="content__legals">
-                <p className="legals__mentions">Mentions légales</p>
-                <p className="legals__copyright">The Why Le Poukwa&copy; 2017</p>
-            </div>
+            <Legals />
         </div>
     </nav>
 );

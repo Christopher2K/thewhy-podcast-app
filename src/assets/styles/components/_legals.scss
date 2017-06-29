@@ -1,0 +1,23 @@
+@import '../global/mixins';
+@import '../global/helpers';
+
+.legals {
+  @include flex(row);
+  width          : 100%;
+  font-size      : 12px;
+  text-transform : uppercase;
+  flex-shrink    : 0;
+  margin-top     : 15px;
+  font-weight    : 600;
+
+  .legal__mentions {
+    border-right    : 1px solid #000000;
+    text-decoration : underline;
+    cursor          : pointer;
+    padding-right   : 5px;
+  }
+
+  .legal__copyright {
+    margin-left : 5px;
+  }
+}

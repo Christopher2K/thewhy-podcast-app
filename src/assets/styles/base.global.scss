@@ -33,15 +33,15 @@ h6 {
   #app {
     width: 100%;
     height: 100%;
-
-    #router {
-      width: 100%;
-      height: 100%;
-    }
   }
 }
 
 // Generic classes
+.page {
+  width: 100%;
+  height: 100%;
+}
+
 .text--underline {
   text-decoration: underline;
 }

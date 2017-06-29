@@ -17,7 +17,6 @@ import {
 const mapStateToProps: MapStateToProps<MenuStateProps, null> = (state: AppState) => ({ menuOpened: state.menu.opened });
 const mapDispatchToProps: MapDispatchToProps<MenuDispatchProps, null> = (dispatch: Dispatch<any>) => ({
     openMenu: () => {
-        console.debug('FIRED');
         dispatch(openMenu());
     },
     closeMenu: () => {

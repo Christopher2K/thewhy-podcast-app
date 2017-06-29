@@ -1,0 +1,11 @@
+@import '../global/mixins';
+@import '../global/helpers';
+
+.podcasts {
+  @include flex($justify: flex-start);
+
+  .podcasts__title {
+    margin-top: 20px;
+    text-transform: uppercase;
+  }
+}

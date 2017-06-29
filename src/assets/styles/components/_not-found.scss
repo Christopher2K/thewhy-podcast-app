@@ -1,0 +1,16 @@
+@import '../global/mixins';
+@import '../global/helpers';
+
+.not-found {
+  @include flex();
+
+  .not-found__title {
+    text-transform : uppercase;
+  }
+
+  .not-found__logo {
+    max-width : 600px;
+    width     : 100%;
+    height    : auto;
+  }
+}
