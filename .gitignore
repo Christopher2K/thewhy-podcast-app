@@ -7,3 +7,6 @@ dist/
 
 # Dependencies
 node_modules/
+
+# Deploiement things
+firebase-debug.log
