@@ -18,7 +18,7 @@ export interface MenuDispatchProps {
 interface MenuProps extends MenuStateProps, MenuDispatchProps {
 }
 
-console.log(Link);
+//console.log(Link);
 
 const Menu: React.SFC<MenuProps> = ({menuOpened, openMenu, closeMenu}): JSX.Element => (
 
