@@ -3,7 +3,8 @@
     "compilerOptions": {
         "module": "commonjs",
         "typeRoots": [
-            "node_modules/@types"
+            "node_modules/@types",
+            "src/definitions"
         ],
         "sourceMap": true,
         "emitDecoratorMetadata": true,
