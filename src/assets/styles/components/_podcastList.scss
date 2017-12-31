@@ -1,0 +1,13 @@
+@import '../global/mixins';
+@import '../global/helpers';
+
+.podcast__list {
+  @include flex(row);
+  flex-wrap: wrap;
+  max-width: 1080px;
+  width: 100%;
+
+  @include breakpoint(medium_device) { max-width: 800px; }
+  @include breakpoint(small_device) { max-width: 100%; }
+  @include breakpoint(extra_small_device) { max-width: 100%; }
+}

@@ -1,4 +1,4 @@
-import * as Actions from '../actions/menu.actions';
+import Actions from '../actions/menu.actions';
 import { Action } from '../types';
 import { Reducer } from 'redux';
 

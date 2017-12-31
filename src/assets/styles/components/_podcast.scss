@@ -1,0 +1,27 @@
+@import '../global/mixins';
+@import '../global/helpers';
+
+.podcast {
+  @include flex(column);
+  width: 33.3%;
+  padding: 30px;
+  box-sizing: border-box;
+
+
+  @include breakpoint(medium_device) { width: 25%; }
+  @include breakpoint(small_device) { width: 100%; }
+  @include breakpoint(extra_small_device) { width: 100%; }
+
+  .podcast__title {
+    text-align: center
+  }
+
+  .podcast__image {
+    width: 100%;
+    height: auto;
+  }
+
+  .podcast__audio {
+    width: 100%;
+  }
+}

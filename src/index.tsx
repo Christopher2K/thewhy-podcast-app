@@ -10,12 +10,19 @@ import createHistory from 'history/createBrowserHistory';
 import { AppState, reducer } from './reducers';
 import { History } from 'history';
 import Router from './Router';
+import loggerMid from 'redux-logger';
+import { createEpicMiddleware } from 'redux-observable';
+import rootEpic from './epics';
 
 const history: History = createHistory();
 const routerMid: Middleware = routerMiddleware(history);
+const epicMid: Middleware = createEpicMiddleware(rootEpic);
+
 const store: Store<AppState> = createStore(
   reducer,
-  composeWithDevTools(applyMiddleware(routerMid))
+  composeWithDevTools(
+    applyMiddleware(routerMid, epicMid, loggerMid)
+  )
 );
 
 ReactDOM.render(
