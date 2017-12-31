@@ -6,7 +6,9 @@
   "scripts": {
     "start:dev": "webpack-dev-server --progress --inline --hot --config config/webpack.dev.js",
     "build": "rm -rf dist/ && webpack --config webpack.config.js",
-    "prettier": "prettier --config ./.prettierrc --write './src/**/*.{ts,tsx}'"
+    "prettier": "prettier --config ./.prettierrc --write './src/**/*.{ts,tsx}'",
+    "predeploy": "yarn build",
+    "deploy": "firebase deploy"
   },
   "devDependencies": {
     "@types/history": "^4.6.0",
