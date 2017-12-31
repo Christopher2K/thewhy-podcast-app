@@ -15,7 +15,7 @@ class Podcast extends React.Component<Props, null> {
       <div className="podcast">
         <h3 className="podcast__title">{title}</h3>
         <img className="podcast__image" src={imageUrl} alt="Test"/>
-        <audio className="podcast__audio" src={streamUrl} controls></audio>
+        <audio className="podcast__audio" src={streamUrl} preload="none" controls></audio>
       </div>
     );
   }
